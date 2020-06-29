@@ -230,6 +230,7 @@
                 }
                 else {
                     alert('The values entered cannot be negative values');
+                    return;
                 }
             })
 
@@ -249,6 +250,7 @@
 
                 if (Number.parseInt(firstRoverXCordinate) > Number.parseInt(maxPointX) || Number.parseInt(firstRoverYCordinate) > Number.parseInt(maxPointY)) {
                     alert('The value entered cannot be greater than the plateau value!');
+                    return;
                 }
 
                 if (firstRoverXCordinate >= 0 && firstRoverYCordinate >= 0 && firstRoverXCordinate != '' && firstRoverYCordinate != '' && firstRoverDirection != '') {
@@ -262,6 +264,7 @@
                 }
                 else {
                     alert('Please fill in all fields and do not enter negative values');
+                    return;
                 }
             })
 
@@ -302,6 +305,7 @@
 
                 if (Number.parseInt(secondRoverXCordinate) > Number.parseInt(maxPointX) || Number.parseInt(secondRoverYCordinate) > Number.parseInt(maxPointY)) {
                     alert('The value entered cannot be greater than the plateau value!');
+                    return;
                 }
 
                 if (secondRoverXCordinate >= 0 && secondRoverYCordinate >= 0 && secondRoverXCordinate != '' && secondRoverYCordinate != '' && secondRoverDirection != '') {
@@ -314,6 +318,7 @@
                 }
                 else {
                     alert('Please fill in all fields and do not enter negative values');
+                    return;
                 }
             })
 
