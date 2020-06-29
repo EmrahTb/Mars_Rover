@@ -1,0 +1,429 @@
+﻿@{
+    ViewData["Title"] = "Mars Rover";
+}
+<h1 class="h3 mb-3 font-weight-normal">Mars Rover</h1>
+
+<img class="mb-4" src="https://static.thenounproject.com/png/269945-200.png" alt="" width="72" height="72">
+
+<form action="javascript:void(0);" class="form-signin" style="padding-top:10px;">
+    <div class="container">
+        <div class="row form-group">
+            <div class="col-xs-12">
+                <ul class="nav nav-pills nav-justified thumbnail setup-panel">
+                    <li class="active">
+                        <a href="#step-1">
+                            <h4 class="list-group-item-heading">Step 1</h4>
+                            <p class="list-group-item-text">Plateau Coordinate</p>
+                        </a> 
+                    </li>
+                    <li class="disabled">
+                        <a href="#step-2">
+                            <h4 class="list-group-item-heading">Step 2</h4>
+                            <p class="list-group-item-text">First Rover Coordinate</p>
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step-3">
+                            <h4 class="list-group-item-heading">Step 3</h4>
+                            <p class="list-group-item-text">First Rover Orientation</p>
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step-4">
+                            <h4 class="list-group-item-heading">Step 4</h4>
+                            <p class="list-group-item-text">Second Rover Coordinate</p>
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step-5">
+                            <h4 class="list-group-item-heading">Step 5</h4>
+                            <p class="list-group-item-text">Second Rover Orientation</p>
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a href="#step-6">
+                            <h4 class="list-group-item-heading">Step 6</h4>
+                            <p class="list-group-item-text">Result</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row setup-content" id="step-1">
+            <div class="col-xs-12">
+                <div class="col-md-12 well">
+                    <input type="number" id="maxPointX" autocomplete="off" class="form-control" placeholder="Max X Cordinate Point" required>
+                    <br />
+                    <input type="number" id="maxPointY" autocomplete="off" class="form-control" placeholder="Max Y Cordinate Point" required>
+                    <br />
+                    <button id="activate-step-2" class="btn btn-primary btn-lg">Next Step</button>
+                </div>
+            </div>
+        </div>
+        <div class="row setup-content" id="step-2">
+            <div class="col-xs-12">
+                <div class="col-md-12 well">
+                    <b>
+                        Direction : N = North, S = South, E = East, W = West
+                    </b>
+                    <br />
+                    <br />
+                    <input type="number" id="firstRoverXCordinate" autocomplete="off" class="form-control" placeholder="First Rover X Coordinate" required>
+                    <br />
+                    <input type="number" id="firstRoverYCordinate" autocomplete="off" class="form-control" placeholder="First Rover Y Coordinate" required>
+                    <br />
+                    <input type="text"  id="firstRoverDirection" autocomplete="off" class="form-control" placeholder="First Rover Direction" maxlength="1" required>
+                    <br />
+                    <button id="activate-step-3" class="btn btn-primary btn-lg">Next Step</button>
+                </div>
+            </div>
+        </div>
+        <div class="row setup-content" id="step-3">
+            <div class="col-xs-12">
+                <div class="col-md-12 well">
+                    <b>
+                        In order to control a rover, NASA sends a simple string of letters. The possible letters are 'L', 'R' and
+                        'M'. 'L' and 'R' makes the rover spin 90 degrees left or right respectively, without moving from its
+                        current spot. 'M' means move forward one grid point, and maintain the same heading.
+                    </b>
+                    <br />
+                    <br />
+                    <b> Example : LMMRMLMM</b>
+                    <br />
+                    <br />
+                    <input type="text" id="firstRoverMove" autocomplete="off" class="form-control" placeholder="First Rover Move" required>
+                    <br />
+                    <br />
+                    <button id="activate-step-4" class="btn btn-primary btn-lg">Next Step</button>
+                </div>
+            </div>
+        </div>
+        <div class="row setup-content" id="step-4">
+            <div class="col-xs-12">
+                <div class="col-md-12 well">
+                    <b>
+                        Direction : N = North, S = South, E = East, W = West
+                    </b>
+                    <br />
+                    <br />
+                    <input type="number" id="secondRoverXCordinate" autocomplete="off" class="form-control" placeholder="Second Rover X Coordinate" required>
+                    <br />
+                    <input type="number" id="secondRoverYCordinate" autocomplete="off" class="form-control" placeholder="Second Rover Y Coordinate" required>
+                    <br />
+                    <input type="text"  id="secondRoverDirection" autocomplete="off" class="form-control" placeholder="Second Rover Direction" maxlength="1" required>
+                    <br />
+                    <button id="activate-step-5" class="btn btn-primary btn-lg">Next Step</button>
+                </div>
+            </div>
+        </div>
+        <div class="row setup-content" id="step-5">
+            <div class="col-xs-12">
+                <div class="col-md-12 well">
+                    <b>
+                        In order to control a rover, NASA sends a simple string of letters. The possible letters are 'L', 'R' and
+                        'M'. 'L' and 'R' makes the rover spin 90 degrees left or right respectively, without moving from its
+                        current spot. 'M' means move forward one grid point, and maintain the same heading.
+                    </b>
+                    <br />
+                    <br />
+                    <b> Example : LMMRMLMM</b>
+                    <br />
+                    <br />
+                    <input type="text" id="secondRoverMove" autocomplete="off" class="form-control" placeholder="Second Rover Move" required>
+                    <br />
+                    <button id="activate-step-6" class="btn btn-primary btn-lg">Next Step</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row setup-content" id="step-6">
+            <div class="col-xs-12">
+                <div class="col-md-12 well text-center" style="min-height:600px;">
+                    <h1 class="text-center">RESULT</h1>
+                    <div id="roverResult"></div>
+                    <br />
+                    <div id="chartContainer" style="height: 500px; width: 100%;"></div>
+                    <br />
+
+                    <button id="activate-step-7" onclick="window.location.href='/'" class="btn btn-primary btn-lg">
+                        New Calculation
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</form>
+
+@section masterjs
+{
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var chart = new CanvasJS.Chart("chartContainer",
+                {
+                    title: {
+                        text: "Mars Rover",
+                        horizontalAlign: "right"
+                    },
+                    axisX: {
+
+                        title: "X Cordinate",
+                        minimum: 1,
+                        maximum: 1
+                    },
+                    axisY: {
+                        title: "Y Cordinate",
+                        minimum: 1,
+                        maximum: 1,
+                    },
+                    legend: {
+                        verticalAlign: "bottom",
+                        horizontalAlign: "left"
+
+                    },
+                    data: [
+                        {
+                            type: "scatter",
+                            color: "#778899",
+                            legendText: "Mars Rover",
+                            showInLegend: "true",
+                            markerType: "triangle",
+                            dataPoints: [
+                                { x: 5, y: 7 },
+                                { x: 8, y: 3 }
+                            ]
+                        }
+                    ]
+                });
+
+            chart.render();
+
+            var navListItems = $('ul.setup-panel li a'),
+                allWells = $('.setup-content');
+            allWells.hide();
+            navListItems.click(function (e) {
+                e.preventDefault();
+                var $target = $($(this).attr('href')),
+                    $item = $(this).closest('li');
+
+                if (!$item.hasClass('disabled')) {
+                    navListItems.closest('li').removeClass('active');
+                    $item.addClass('active');
+                    allWells.hide();
+                    $target.show();
+                }
+            });
+
+            $('ul.setup-panel li.active a').trigger('click');
+
+            $('#activate-step-2').on('click', function (e) {
+                var maxPointX = $("#maxPointX").val();
+                var maxPointY = $("#maxPointY").val();
+                if (maxPointX >= 0 && maxPointY >= 0 && maxPointX != '' && maxPointY != '') {
+                    $('ul.setup-panel li:eq(1)').removeClass('disabled');
+                    $('ul.setup-panel li a[href="#step-2"]').trigger('click');
+                    $(this).remove();
+                    $("#maxPointX").prop('disabled', true);
+                    $("#maxPointY").prop('disabled', true);
+                }
+                else {
+                    alert('The values entered cannot be negative values');
+                }
+            })
+
+            $('#activate-step-3').on('click', function (e) {
+                var firstRoverXCordinate = $("#firstRoverXCordinate").val();
+                var firstRoverYCordinate = $("#firstRoverYCordinate").val();
+                var firstRoverDirection = $("#firstRoverDirection").val();
+                var maxPointX = $("#maxPointX").val();
+                var maxPointY = $("#maxPointY").val();
+
+                var directions = ['W', 'E', 'N', 'S'];
+
+                if (directions.indexOf(firstRoverDirection.toUpperCase()) == -1) {
+                    alert('You can only write W, E, N, S values in the Direction field.');
+                    return;
+                }
+
+                if (Number.parseInt(firstRoverXCordinate) > Number.parseInt(maxPointX) || Number.parseInt(firstRoverYCordinate) > Number.parseInt(maxPointY)) {
+                    alert('The value entered cannot be greater than the plateau value!');
+                }
+
+                if (firstRoverXCordinate >= 0 && firstRoverYCordinate >= 0 && firstRoverXCordinate != '' && firstRoverYCordinate != '' && firstRoverDirection != '') {
+
+                    $('ul.setup-panel li:eq(2)').removeClass('disabled');
+                    $('ul.setup-panel li a[href="#step-3"]').trigger('click');
+                    $(this).remove();
+                    $("#firstRoverXCordinate").prop('disabled', true);
+                    $("#firstRoverYCordinate").prop('disabled', true);
+                    $("#firstRoverDirection").prop('disabled', true);
+                }
+                else {
+                    alert('Please fill in all fields and do not enter negative values');
+                }
+            })
+
+            $('#activate-step-4').on('click', function (e) {
+                var firstRoverMove = $("#firstRoverMove").val();
+                var move = ['L', 'R', 'M'];
+                var errorCount = 0;
+                for (var i = 0; i < firstRoverMove.length; i++) {
+                    if (move.indexOf(firstRoverMove.charAt(i).toString().toUpperCase()) == -1) {
+                        errorCount++;
+                    }
+                }
+
+                if (errorCount > 0 || firstRoverMove == '') {
+                    alert('You Can Only Use The Words L, R, M');
+                    return;
+                }
+
+                $('ul.setup-panel li:eq(3)').removeClass('disabled');
+                $('ul.setup-panel li a[href="#step-4"]').trigger('click');
+                $(this).remove();
+                $("#firstRoverMove").prop('disabled', true);
+            })
+
+            $('#activate-step-5').on('click', function (e) {
+                var secondRoverXCordinate = $("#secondRoverXCordinate").val();
+                var secondRoverYCordinate = $("#secondRoverYCordinate").val();
+                var secondRoverDirection = $("#secondRoverDirection").val();
+                var maxPointX = $("#maxPointX").val();
+                var maxPointY = $("#maxPointY").val();
+
+                var directions = ['W', 'E', 'N', 'S'];
+
+                if (directions.indexOf(secondRoverDirection.toUpperCase()) == -1) {
+                    alert('You can only write W, E, N, S values in the Direction field.');
+                    return;
+                }
+
+                if (Number.parseInt(secondRoverXCordinate) > Number.parseInt(maxPointX) || Number.parseInt(secondRoverYCordinate) > Number.parseInt(maxPointY)) {
+                    alert('The value entered cannot be greater than the plateau value!');
+                }
+
+                if (secondRoverXCordinate >= 0 && secondRoverYCordinate >= 0 && secondRoverXCordinate != '' && secondRoverYCordinate != '' && secondRoverDirection != '') {
+                    $('ul.setup-panel li:eq(4)').removeClass('disabled');
+                    $('ul.setup-panel li a[href="#step-5"]').trigger('click');
+                    $(this).remove();
+                    $("#secondRoverXCordinate").prop('disabled', true);
+                    $("#secondRoverYCordinate").prop('disabled', true);
+                    $("#secondRoverDirection").prop('disabled', true);
+                }
+                else {
+                    alert('Please fill in all fields and do not enter negative values');
+                }
+            })
+
+            $('#activate-step-6').on('click', function (e) {
+                var secondRoverMove = $("#secondRoverMove").val();
+                var move = ['L', 'R', 'M'];
+                var errorCount = 0;
+                for (var i = 0; i < secondRoverMove.length; i++) {
+                    if (move.indexOf(secondRoverMove.charAt(i).toString().toUpperCase()) == -1) {
+                        errorCount ++;
+                    }
+                }
+
+                if (errorCount > 0 || secondRoverMove == '') {
+                    alert('You Can Only Use The Words L, R, M');
+                    return;
+                }
+
+                $('ul.setup-panel li:eq(5)').removeClass('disabled');
+                $('ul.setup-panel li a[href="#step-6"]').trigger('click');
+                $(this).remove();
+                $("#secondRoverMove").prop('disabled', true);
+                calculate();
+            })
+
+        });
+
+        function calculate() {
+            var maxPointX = $("#maxPointX").val();
+            var maxPointY = $("#maxPointY").val();
+            var firstRoverXCordinate = $("#firstRoverXCordinate").val();
+            var firstRoverYCordinate = $("#firstRoverYCordinate").val();
+            var firstRoverDirection = $("#firstRoverDirection").val();
+            var firstRoverMove = $("#firstRoverMove").val().toUpperCase();
+            var secondRoverXCordinate = $("#secondRoverXCordinate").val();
+            var secondRoverYCordinate = $("#secondRoverYCordinate").val();
+            var secondRoverDirection = $("#secondRoverDirection").val();
+            var secondRoverMove = $("#secondRoverMove").val().toUpperCase();
+            var rovers =
+                [
+                    { roverName: "First Rover", roverXCordinate: firstRoverXCordinate, roverYCordinate: firstRoverYCordinate, roverMove: firstRoverMove, directions: firstRoverDirection },
+                    { roverName: "Second Rover", roverXCordinate: secondRoverXCordinate, roverYCordinate: secondRoverYCordinate, roverMove: secondRoverMove, directions: secondRoverDirection }
+                ];
+            $.ajax({
+                url: '/Home/Calculete',
+                type: 'POST',
+                dataType: 'json',
+                data: { maxPointX, maxPointY, firstRoverXCordinate, firstRoverYCordinate, firstRoverMove, secondRoverXCordinate, secondRoverYCordinate, secondRoverMove, rovers },
+                success: function (data) {
+                    var firstRoverXCordinate = data[0].roverXCordinate;
+                    var firstRoverYCordinate = data[0].roverYCordinate;
+                    var secondRoverXCordinate = data[1].roverXCordinate;
+                    var secondRoverYCordinate = data[1].roverYCordinate;
+                    var directions =
+                        [
+                            { id: 1, name: 'North' },
+                            { id: 2, name: 'South' },
+                            { id: 3, name: 'East' },
+                            { id: 4, name: 'West' }
+                        ];
+                    var roverResult = '';
+                    data.forEach(function (item) {
+                        var direction = directions.find(x => x.id === item.roverDirection).name;
+                        var error = '';
+                        if (item.error) {
+                            error = '<span style="color:red"> -- Error: Rover Movement Out Of Plato --<span/>'
+                        }
+                        roverResult += '<b style="font-size:17px;"> ' + item.roverName + ' = (X: ' + item.roverXCordinate + ' , Y: ' + item.roverYCordinate + ') - (Direction: ' + direction + ')' + error + '</b><br/>'
+                    });
+
+                    $("#roverResult").html(roverResult);
+                    var chart = new CanvasJS.Chart("chartContainer",
+                        {
+                            title: {
+                                text: "Mars Rover",
+                                horizontalAlign: "right"
+                            },
+                            axisX: {
+
+                                title: "X Cordinate",
+                                minimum: 1,
+                                maximum: $("#maxPointX").val()
+                            },
+                            axisY: {
+                                title: "Y Cordinate",
+                                minimum: 1,
+                                maximum: $("#maxPointY").val(),
+                            },
+                            legend: {
+                                verticalAlign: "bottom",
+                                horizontalAlign: "left"
+
+                            },
+                            data: [
+                                {
+                                    type: "scatter",
+                                    color: "#778899",
+                                    legendText: "Mars Rover",
+                                    showInLegend: "true",
+                                    markerType: "triangle",
+                                    dataPoints: [
+                                        { x: firstRoverXCordinate, y: firstRoverYCordinate, label: "First Rover", markerType: "circle", markerSize: 10 },
+                                        { x: secondRoverXCordinate, y: secondRoverYCordinate, label: "Second Rover", markerType: "circle", markerSize: 10 }
+                                    ]
+                                }
+                            ]
+                        });
+                    chart.render();
+                }
+            });
+        }
+    </script>
+}
